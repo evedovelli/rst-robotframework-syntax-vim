@@ -33,7 +33,7 @@ syn region rstRobotSettingsSection contained
       \ end=+\(^\s\{2,4}\(\*\*\*\)\@=\|^\s\@!\)+
       \ contains=rstRobotSection,rstRobotLibraryLine,rstRobotResourceLine,rstRobotForceTagsLine,
       \          rstRobotSuiteSetupLine,rstRobotSuiteTeardownLine,rstRobotTestSetupLine,rstRobotTestTeardownLine,
-      \          rstRobotDotsLine
+      \          rstRobotDotsLine,rstRobotDocumentationLine
 
 syn region rstRobotTestSection contained
       \ start=+\*\*\* Test Cases \*\*\*+
@@ -57,6 +57,7 @@ syn match rstRobotSuiteSetupLine    '^\s\{2,4}Suite Setup\s\{2}\s*\S.*$'    cont
 syn match rstRobotSuiteTeardownLine '^\s\{2,4}Suite Teardown\s\{2}\s*\S.*$' contains=rstRobotSuiteTeardown,rstRobotFunction
 syn match rstRobotTestSetupLine     '^\s\{2,4}Test Setup\s\{2}\s*\S.*$'     contains=rstRobotTestSetup,rstRobotFunction
 syn match rstRobotTestTeardownLine  '^\s\{2,4}Test Teardown\s\{2}\s*\S.*$'  contains=rstRobotTestTeardown,rstRobotFunction
+syn match rstRobotDocumentationLine '^\s\{2,4}Documentation\s\{2}\s*\S.*$'  contains=rstRobotDocumentation
 syn match rstRobotDotsLine          '^\s\{2}\s*\.\.\.\s\{2}.*$'             contains=rstRobotDots,rstRobotString,rstRobotNumber,rstRobotParam,rstRobotParamEnd,rstRobotParamString,rstRobotReserved
 
 syn match rstRobotPath          contained '\>\s\{2}\s*\S.*$'
@@ -67,6 +68,7 @@ syn match rstRobotSuiteSetup    contained '^\s\{2,4}Suite Setup'
 syn match rstRobotSuiteTeardown contained '^\s\{2,4}Suite Teardown'
 syn match rstRobotTestSetup     contained '^\s\{2,4}Test Setup'
 syn match rstRobotTestTeardown  contained '^\s\{2,4}Test Teardown'
+syn match rstRobotDocumentation contained '^\s\{2,4}Documentation'
 syn match rstRobotFunction      contained '\>\s\{2}\s*\S.*$'
 
 syn match rstRobotDocsStep     '^\s\{6}\s*\[Documentation\]\s.*$' contains=rstRobotDocs
@@ -85,7 +87,7 @@ syn match rstRobotDots     contained '^\s\{2}\s*\.\.\.\s\{2}'
 syn match rstRobotComment  contained '^\s\{2,4}\s*#.*$'
 syn match rstRobotNumber   contained '\<[0-9]\+\>'
 syn match rstRobotTags     contained '\[Tags\]'
-syn match rstRobotTag      contained '[0-9a-zA-Z_]\+'
+syn match rstRobotTag      contained '[0-9a-zA-Z_-]\+'
 syn match rstRobotTagSpace contained '\> \<'
 syn match rstRobotDocs     contained '\[Documentation\]'
 syn match rstRobotSetup    contained '\[Setup\]'
@@ -129,5 +131,6 @@ hi def link rstRobotTestSetup         PreProc
 hi def link rstRobotTestTeardown      PreProc
 hi def link rstRobotSuiteFunction     Function
 hi def link rstRobotReserved          Statement
+hi def link rstRobotDocumentation     PreProc
 
 let b:current_syntax = "rstrobot"
