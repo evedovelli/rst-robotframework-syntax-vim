@@ -33,7 +33,7 @@ syn region rstRobotSettingsSection contained
       \ end=+\(^\s\{2,4}\(\*\*\*\)\@=\|^\s\@!\)+
       \ contains=rstRobotSection,rstRobotLibraryLine,rstRobotResourceLine,rstRobotForceTagsLine,
       \          rstRobotSuiteSetupLine,rstRobotSuiteTeardownLine,rstRobotTestSetupLine,rstRobotTestTeardownLine,
-      \          rstRobotDotsLine,rstRobotDocumentationLine
+      \          rstRobotDotsLine,rstRobotDocumentationLine,rstRobotComment
 
 syn region rstRobotTestSection contained
       \ start=+\*\*\* Test Cases \*\*\*+
@@ -95,7 +95,7 @@ syn match rstRobotTeardown contained '\[Teardown\]'
 syn match rstRobotTest     contained '^\s\{2,4}\w.*$'
 syn match rstRobotParam    contained '\(\S\)\@<=\s\{2}\s*\S.*\(\s\{2}\)\@='
 syn match rstRobotParamEnd contained '\(\S\)\@<=\s\{2}\s*\S.*$'
-syn match rstRobotReserved contained '\(Run keyword If Test Failed\|Run Keyword And Ignore Error\|Run keyword And Continue on Failure\)\s\{2}\s*'
+syn match rstRobotReserved contained '\(Run keyword If Test Failed\|Run Keyword And Ignore Error\|Run keyword And Continue on Failure\|Wait Until Keyword Succeeds\)\s\{2}\s*'
 
 syn region rstRobotString start=+"+ end=+"+ contained
 syn region rstRobotParamString start=+${+ end=+}+ contained
